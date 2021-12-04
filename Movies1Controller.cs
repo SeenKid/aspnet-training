@@ -19,13 +19,11 @@ namespace MvcMovie.Controllers
             _context = context;
         }
 
-        // GET: Movies1
         public async Task<IActionResult> Index()
         {
             return View(await _context.Movie.ToListAsync());
         }
 
-        // GET: Movies1/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,15 +41,11 @@ namespace MvcMovie.Controllers
             return View(movie);
         }
 
-        // GET: Movies1/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Movies1/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie)
@@ -81,9 +75,6 @@ namespace MvcMovie.Controllers
             return View(movie);
         }
 
-        // POST: Movies1/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie)
@@ -116,7 +107,6 @@ namespace MvcMovie.Controllers
             return View(movie);
         }
 
-        // GET: Movies1/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -134,7 +124,6 @@ namespace MvcMovie.Controllers
             return View(movie);
         }
 
-        // POST: Movies1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
